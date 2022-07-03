@@ -1,1 +1,3 @@
 2022/07/03 19:45:45 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 36 main.init.0"],"level":"info","message":"logtest: go-programming-tour-book/blog-service","time":1656848745109531000}
+2022/07/03 20:16:44 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 36 main.init.0"],"level":"info","message":"logtest: go-programming-tour-book/blog-service","time":1656850604548450000}
+2022/07/03 20:17:56 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 36 main.init.0"],"level":"info","message":"logtest: go-programming-tour-book/blog-service","time":1656850676319742000}
