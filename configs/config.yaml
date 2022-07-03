@@ -1,0 +1,27 @@
+# $ go get -u github.com/spf13/viper@v1.4.0
+# Viper is a complete configuration solution for Go applications including 12-Factor apps.
+# It is designed to work within an application,
+# and can handle all types of configuration needs and formats. It supports:
+
+Server:
+  RunMode: debug
+  HttpPort: 8000
+  ReadTimeout: 60
+  WriteTimeout: 60
+App:
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  LogSavePath: storage/logs
+  LogFileName: app
+  LogFileExt: .log
+Database:
+  DBType: mysql
+  Username: root  # 填写你的数据库账号
+  Password: 123456  # 填写你的数据库密码
+  Host: 127.0.0.1:3310
+  DBName: blog_service
+  TablePrefix: blog_
+  Charset: utf8
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
