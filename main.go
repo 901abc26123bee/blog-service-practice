@@ -9,7 +9,6 @@ import (
 	"log"
 	"net/http"
 	"time"
-
 	"github.com/gin-gonic/gin"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
@@ -39,8 +38,12 @@ func init() {
 	}
 }
 
+// @title Blog Service
+// @version 1.0
+// @description Go Blog Service
+// @termsOfService http://swagger.io/terms/
 func main() {
-	global.Logger.Infof("%s: go-programming-tour-book/%s", "logtest", "blog-service")
+	global.Logger.Infof("%s: blog-service/%s", "logtest", "blog-service")
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
 	s := &http.Server{

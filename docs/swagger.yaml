@@ -1,0 +1,426 @@
+definitions:
+  app.Pager:
+    properties:
+      page:
+        type: integer
+      page_size:
+        type: integer
+      total_rows:
+        type: integer
+    type: object
+  errcode.Error:
+    type: object
+  model.Article:
+    properties:
+      content:
+        type: string
+      cover_image_url:
+        type: string
+      created_by:
+        type: string
+      created_on:
+        type: integer
+      deleted_on:
+        type: integer
+      desc:
+        type: string
+      id:
+        type: integer
+      is_del:
+        type: integer
+      modified_by:
+        type: string
+      modified_on:
+        type: integer
+      state:
+        type: integer
+      title:
+        type: string
+    type: object
+  model.ArticleSwagger:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/model.Article'
+        type: array
+      pager:
+        $ref: '#/definitions/app.Pager'
+    type: object
+  model.Tag:
+    properties:
+      created_by:
+        type: string
+      created_on:
+        type: integer
+      deleted_on:
+        type: integer
+      id:
+        type: integer
+      is_del:
+        type: integer
+      modified_by:
+        type: string
+      modified_on:
+        type: integer
+      name:
+        type: string
+      state:
+        type: integer
+    type: object
+info:
+  contact: {}
+  description: Go Blog Service
+  termsOfService: http://swagger.io/terms/
+  title: Blog Service
+  version: "1.0"
+paths:
+  /api/v1/articles:
+    get:
+      parameters:
+      - description: article name
+        in: query
+        name: name
+        type: string
+      - description: Tag ID
+        in: query
+        name: tag_id
+        type: integer
+      - description: state
+        in: query
+        name: state
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: page size
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/model.ArticleSwagger'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Get Article
+    post:
+      parameters:
+      - description: Article ID
+        in: body
+        name: tag_id
+        required: true
+        schema:
+          type: string
+      - description: article title
+        in: body
+        name: title
+        required: true
+        schema:
+          type: string
+      - description: article description
+        in: body
+        name: desc
+        schema:
+          type: string
+      - description: cover image url
+        in: body
+        name: cover_image_url
+        required: true
+        schema:
+          type: string
+      - description: content
+        in: body
+        name: content
+        required: true
+        schema:
+          type: string
+      - description: created by
+        in: body
+        name: created_by
+        required: true
+        schema:
+          type: integer
+      - description: state
+        in: body
+        name: state
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/model.Article'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Create Article
+  /api/v1/articles/{id}:
+    delete:
+      parameters:
+      - description: Article ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Delete Article
+    get:
+      parameters:
+      - description: Article ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/model.Article'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Get an article
+    put:
+      parameters:
+      - description: Tag ID
+        in: body
+        name: tag_id
+        schema:
+          type: string
+      - description: article title
+        in: body
+        name: title
+        schema:
+          type: string
+      - description: article description
+        in: body
+        name: desc
+        schema:
+          type: string
+      - description: cover image url
+        in: body
+        name: cover_image_url
+        schema:
+          type: string
+      - description: article content
+        in: body
+        name: content
+        schema:
+          type: string
+      - description: modified by
+        in: body
+        name: modified_by
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/model.Article'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Update Article
+  /api/v1/tags:
+    get:
+      parameters:
+      - description: tag name
+        in: query
+        maxLength: 100
+        name: name
+        type: string
+      - default: 1
+        description: state
+        enum:
+        - 0
+        - 1
+        in: query
+        name: state
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: page size
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/model.Tag'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Get MultiTags
+    post:
+      parameters:
+      - description: tag name
+        in: body
+        maxLength: 100
+        minLength: 3
+        name: name
+        required: true
+        schema:
+          type: string
+      - default: 1
+        description: state
+        enum:
+        - 0
+        - 1
+        in: body
+        name: state
+        schema:
+          type: integer
+      - description: created by
+        in: body
+        maxLength: 100
+        minLength: 3
+        name: created_by
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/model.Tag'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Add Tag
+  /api/v1/tags/{id}:
+    delete:
+      parameters:
+      - description: Tag ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Delete tag
+    put:
+      parameters:
+      - description: Tag ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: tag name
+        in: body
+        maxLength: 100
+        minLength: 3
+        name: name
+        schema:
+          type: string
+      - default: 1
+        description: state
+        enum:
+        - 0
+        - 1
+        in: body
+        name: state
+        schema:
+          type: integer
+      - description: modified by
+        in: body
+        maxLength: 100
+        minLength: 3
+        name: modified_by
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            items:
+              $ref: '#/definitions/model.Tag'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: Update Tag
+swagger: "2.0"
