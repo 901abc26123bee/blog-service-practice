@@ -1,1 +1,6 @@
 2022/07/03 19:45:45 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 36 main.init.0"],"level":"info","message":"logtest: go-programming-tour-book/blog-service","time":1656848745109531000}
+2022/07/20 15:53:32 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1658303612559176000}
+2022/07/20 16:55:15 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1658307315317835000}
+2022/07/20 16:55:44 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[0 1]中的一个","time":1658307344219986000}
+2022/07/20 17:05:14 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1658307914962355000}
+2022/07/20 17:05:22 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必須是[0 1]中的一個","time":1658307922105618000}

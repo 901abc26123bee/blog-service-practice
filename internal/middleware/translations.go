@@ -10,6 +10,7 @@ import (
 	validator "github.com/go-playground/validator/v10"
 	en_translations "github.com/go-playground/validator/v10/translations/en"
 	zh_translations "github.com/go-playground/validator/v10/translations/zh"
+	zh_tw_translations "github.com/go-playground/validator/v10/translations/zh_tw"
 )
 
 func Translations() gin.HandlerFunc {
@@ -26,8 +27,11 @@ func Translations() gin.HandlerFunc {
 			case "en":
 				_ = en_translations.RegisterDefaultTranslations(v, trans)
 				break
+			case "zh_tw":
+				_ = zh_tw_translations.RegisterDefaultTranslations(v, trans)
+				break
 			default:
-				_ = zh_translations.RegisterDefaultTranslations(v, trans)
+				_ = zh_tw_translations.RegisterDefaultTranslations(v, trans)
 				break
 			}
 			c.Set("trans", trans)

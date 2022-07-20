@@ -88,5 +88,8 @@ import (
 )
 ```
 
-
+### zsh
+```
+vim ~/.zshrc
+```
 

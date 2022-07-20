@@ -41,7 +41,7 @@ func (e *Error) Details() []string {
 	return e.details
 }
 
-func (e *Error) WithDetail(details ...string) *Error {
+func (e *Error) WithDetails(details ...string) *Error {
 	newError := *e
 	newError.details = []string{}
 	for _, d := range details {
