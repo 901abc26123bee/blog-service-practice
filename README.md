@@ -93,3 +93,15 @@ import (
 vim ~/.zshrc
 ```
 
+###
+```
+curl -X POST http://127.0.0.1:8080/api/v1/tags -F 'name=GoLang' -F created_by=tinawong
+curl -X POST http://127.0.0.1:8080/api/v1/tags -F 'name=Java' -F created_by=tinawong
+curl -X POST http://127.0.0.1:8080/api/v1/tags -F 'name=JavaScript' -F created_by=tinawong
+
+curl -X GET 'http://127.0.0.1:8080/api/v1/tags?page=1&page_size=2'
+curl -X GET 'http://127.0.0.1:8080/api/v1/tags?page=2&page_size=2'
+
+curl -X PUT http://127.0.0.1:8080/api/v1/tags/{1} -F state=1 -F modified_by=atom -F 'name=Python'
+curl -X DELETE  http://127.0.0.1:8080/api/v1/tags/{1}
+```
