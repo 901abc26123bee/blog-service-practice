@@ -14,3 +14,12 @@
 2022/07/23 16:27:24 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658564844091425000}
 2022/07/23 16:27:31 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658564851697966000}
 2022/07/23 16:27:53 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658564873109791000}
+2022/07/23 16:31:31 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658565091324962000}
+2022/07/23 21:48:21 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1658584101186791000}
+2022/07/23 21:49:37 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658584177530937000}
+2022/07/23 21:50:05 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658584205530946000}
+2022/07/23 21:50:52 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1658584252294142000}
+2022/07/23 21:51:16 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658584276633125000}
+2022/07/23 21:52:07 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位,Name長度必須至少為3個字元","time":1658584327381788000}
+2022/07/23 21:52:21 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658584341851651000}
+2022/07/23 21:54:04 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1658584444000427000}
