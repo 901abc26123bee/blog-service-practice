@@ -137,3 +137,16 @@ type User struct {
 //    - Unix Second
 // 		- Use 1 / 0 AS Delete Flag
 ```
+
+
+### upload file
+需要設置文件服務去提供靜態資源的訪問，才能實現讓外部請求項目 HTTP Server 時同時提供靜態資源的訪問
+`r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))`
+
+```
+$ curl -X POST http://127.0.0.1:8080/upload/file -F file=@{file_path} -F type=1
+$ curl -X POST http://127.0.0.1:8080/upload/file -F file=@./w644.jpeg -F type=1
+{"file_access_url":"http://127.0.0.1:8080/static/3b136bf60441cadd0369301b5eb1b2bf.jpeg"}
+```
+visit `http://127.0.0.1:8080/static/3b136bf60441cadd0369301b5eb1b2bf.jpeg`
+

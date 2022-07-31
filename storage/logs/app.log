@@ -23,3 +23,7 @@
 2022/07/23 21:52:07 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位,Name長度必須至少為3個字元","time":1658584327381788000}
 2022/07/23 21:52:21 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: State為必填欄位","time":1658584341851651000}
 2022/07/23 21:54:04 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1658584444000427000}
+2022/07/31 11:22:40 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659237760315828000}
+2022/07/31 14:33:10 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659249190832833000}
+2022/07/31 14:36:41 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659249401294089000}
+2022/07/31 14:47:28 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659250048159447000}
