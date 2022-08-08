@@ -96,7 +96,7 @@ https://github.com/go-playground/validator/tree/master/translations
 vim ~/.zshrc
 ```
 
-###
+### Tags API
 ```
 curl -X POST http://127.0.0.1:8080/api/v1/tags -F 'name=GoLang' -F created_by=tinawong
 curl -X POST http://127.0.0.1:8080/api/v1/tags -F 'name=Java' -F created_by=tinawong
@@ -140,8 +140,9 @@ type User struct {
 
 
 ### upload file
-需要設置文件服務去提供靜態資源的訪問，才能實現讓外部請求項目 HTTP Server 時同時提供靜態資源的訪問
-`r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))`
+- 將應用服務和文件服務給拆分開來，因為從安全角度來講，文件資源不應當與應用資源擺放在一起，否則會有風險
+- 需要設置文件服務去提供靜態資源的訪問，才能實現讓外部請求項目 HTTP Server 時同時提供靜態資源的訪問
+	`r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))`
 
 ```
 $ curl -X POST http://127.0.0.1:8080/upload/file -F file=@{file_path} -F type=1
@@ -150,3 +151,43 @@ $ curl -X POST http://127.0.0.1:8080/upload/file -F file=@./w644.jpeg -F type=1
 ```
 visit `http://127.0.0.1:8080/static/3b136bf60441cadd0369301b5eb1b2bf.jpeg`
 
+
+### token
+Base64
+- Base64編碼可用於在HTTP環境下傳遞較長的標識資訊。
+- 在其他應用程式中，也常常需要把二進位資料編碼為適合放在URL（包括隱藏表單域）中的形式。此時，採用Base64編碼不僅比較簡短，同時也具有不可讀性，即所編碼的資料不會被人用肉眼所直接看到。
+
+Base64UrlEncode
+- Base64UrlEncode 是Base64 算法的變種，為什麼要變呢，原因是在業界中我們經常可以看到JWT 令牌會被放入Header 或Query Param 中（也就是URL）。
+- 而在URL 中，一些個別字符是有特殊意義的，例如：“+”、“/”、“=” 等等，因此在Base64UrlEncode 算法中，會對其進行替換，例如：“+” 替換為“-”、“/” 替換成“_”、“=” 會被進行忽略處理，以此來保證JWT 令牌的在URL 中的可用性和準確性。
+
+```shell
+go get -u github.com/dgrijalva/jwt-go@v3.2.0
+```
+
+
+```shell
+# get valid token
+curl -X POST \
+  'http://127.0.0.1:8080/auth' \
+  -d 'app_key=tdlemon' \
+  -d 'app_secret=qwe123hahaha'
+
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfa2V5IjoiYjhkODg2NDM3NDcyYjkyMDQxZWMwMjY0NWE1MjA0ZDgiLCJhcHBfc2VjcmV0IjoiZjM1OTI2Y2Y0OTIzYjhjOWQyNjQxNjM2ZDZkODNiYTQiLCJleHAiOjE2NTk5ODA2MzEsImlzcyI6ImJsb2ctc2VydmljZSJ9.qRpOh6nSaG4cWAPQt5QFhr1I-PD7OxsZorGB4h1ddw0"}
+```
+
+```shell
+# visit without token
+curl -X GET http://127.0.0.1:8080/api/v1/tags
+
+# using wrong token
+curl -X GET http://127.0.0.1:8080/api/v1/tags -H 'token: eyJhbGciOiJIUzI1NiIsInRxxx'
+
+# validation timeout
+curl -X GET http://127.0.0.1:8080/api/v1/tags -H 'token: eyJhbGciOiJIUzI1NiIsInRxxx'
+
+# success
+curl -X GET http://127.0.0.1:8080/api/v1/tags -H 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfa2V5IjoiYjhkODg2NDM3NDcyYjkyMDQxZWMwMjY0NWE1MjA0ZDgiLCJhcHBfc2VjcmV0IjoiZjM1OTI2Y2Y0OTIzYjhjOWQyNjQxNjM2ZDZkODNiYTQiLCJleHAiOjE2NTk5ODA2MzEsImlzcyI6ImJsb2ctc2VydmljZSJ9.qRpOh6nSaG4cWAPQt5QFhr1I-PD7OxsZorGB4h1ddw0'
+
+{"list":[{"id":2,"created_by":"tinawong","modified_by":"","created_on":1658564501,"modified_on":1658564501,"deleted_on":0,"is_del":0,"name":"Java","state":1},{"id":4,"created_by":"tinawong","modified_by":"","created_on":1658584135,"modified_on":1658584135,"deleted_on":0,"is_del":0,"name":"JavaScript","state":1}],"pager":{"page":1,"page_size":10,"total_rows":2}}
+```

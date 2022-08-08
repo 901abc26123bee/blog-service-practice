@@ -27,3 +27,9 @@
 2022/07/31 14:33:10 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659249190832833000}
 2022/07/31 14:36:41 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659249401294089000}
 2022/07/31 14:47:28 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659250048159447000}
+2022/08/08 23:25:45 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659972345269594000}
+2022/08/08 23:26:53 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey為必填欄位,AppSecret為必填欄位","time":1659972413133964000}
+2022/08/08 23:40:21 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppSecret為必填欄位,AppKey為必填欄位","time":1659973221073555000}
+2022/08/08 23:41:46 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey為必填欄位,AppSecret為必填欄位","time":1659973306538733000}
+2022/08/08 23:42:41 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey為必填欄位,AppSecret為必填欄位","time":1659973361223172000}
+2022/08/08 23:53:08 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659973988955561000}
