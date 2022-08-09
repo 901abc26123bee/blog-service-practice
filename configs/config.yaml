@@ -36,3 +36,12 @@ JWT:
   Secret: qwe123hahaha
   Issuer: blog-service
   Expire: 7200
+Email:
+  Host: smtp.gmail.com
+  Port: 465
+  UserName: xxx@gmail.com
+  Password: xxx
+  IsSSL: true
+  From: xxx@gmail.com
+  To:
+    - xxx@gmail.com

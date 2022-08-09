@@ -33,3 +33,5 @@
 2022/08/08 23:41:46 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey為必填欄位,AppSecret為必填欄位","time":1659973306538733000}
 2022/08/08 23:42:41 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey為必填欄位,AppSecret為必填欄位","time":1659973361223172000}
 2022/08/08 23:53:08 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659973988955561000}
+2022/08/09 11:10:29 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1660014629901868000}
+2022/08/09 16:33:35 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1660034015375225000}

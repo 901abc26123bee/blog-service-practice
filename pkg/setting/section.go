@@ -50,3 +50,13 @@ func (s *Setting) ReadSection(k string, v interface{}) error {
 	}
 	return nil
 }
+
+type EmailSettingS struct {
+	Host     string
+	Port     int
+	UserName string
+	Password string
+	IsSSL    bool
+	From     string
+	To       []string
+}

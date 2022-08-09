@@ -191,3 +191,8 @@ curl -X GET http://127.0.0.1:8080/api/v1/tags -H 'token: eyJhbGciOiJIUzI1NiIsInR
 
 {"list":[{"id":2,"created_by":"tinawong","modified_by":"","created_on":1658564501,"modified_on":1658564501,"deleted_on":0,"is_del":0,"name":"Java","state":1},{"id":4,"created_by":"tinawong","modified_by":"","created_on":1658584135,"modified_on":1658584135,"deleted_on":0,"is_del":0,"name":"JavaScript","state":1}],"pager":{"page":1,"page_size":10,"total_rows":2}}
 ```
+
+### log middleware
+```shell
+go get -u gopkg.in/gomail.v2
+```
