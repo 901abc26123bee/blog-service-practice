@@ -196,3 +196,7 @@ curl -X GET http://127.0.0.1:8080/api/v1/tags -H 'token: eyJhbGciOiJIUzI1NiIsInR
 ```shell
 go get -u gopkg.in/gomail.v2
 ```
+### network visit ratelimit
+```shell
+go get -u github.com/juju/ratelimit@v1.0.1
+```
