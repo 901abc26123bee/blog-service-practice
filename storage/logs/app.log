@@ -35,3 +35,4 @@
 2022/08/08 23:53:08 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1659973988955561000}
 2022/08/09 11:10:29 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1660014629901868000}
 2022/08/09 16:33:35 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1660034015375225000}
+2022/08/11 16:21:39 {"callers":["/Users/wengzhenyuan/Desktop/go_blog-service/main.go: 35 main.init.0"],"level":"info","message":"logtest: blog-service/blog-service","time":1660206099258253000}
