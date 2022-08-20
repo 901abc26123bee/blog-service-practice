@@ -79,6 +79,8 @@ go install github.com/swaggo/swag/cmd/swag@v1.7.8
 
 
 #### mysql connection
+[Go database/sql tutorial](http://go-database-sql.org/index.html)
+
 Remember to import mysql-driver when you are using `gorm`.
 ```go
 import (
@@ -94,6 +96,7 @@ https://github.com/go-playground/validator/tree/master/translations
 ### zsh
 ```
 vim ~/.zshrc
+open ~/.zshrc
 ```
 
 ### Tags API
@@ -108,6 +111,35 @@ curl -X GET 'http://127.0.0.1:8080/api/v1/tags?page=2&page_size=2'
 curl -X PUT http://127.0.0.1:8080/api/v1/tags/{1} -F state=0 -F modified_by=atom -F 'name=Python'
 curl -X PUT http://127.0.0.1:8080/api/v1/tags/{1} -F state=0 -F modified_by=roger -F 'name=Python'
 curl -X DELETE  http://127.0.0.1:8080/api/v1/tags/{1}
+```
+
+### Article API
+```
+http://127.0.0.1:8080/api/v1/articles
+// place token in header
+// form-data
+	cover_image_url:https://imgur.dcard.tw/k5IcoJB.gif
+	created_by:tina
+	tag_id:1
+	title:test article
+	desc:test create article
+	content:learning golang, gin and gorm
+
+http://127.0.0.1:8080/api/v1/articles/1
+// place token in header
+// form data
+cover_image_url:https://imgur.dcard.tw/k5IcoJB.gif
+tag_id:1
+title:test article 5
+desc:test create article 5
+content:learning golang, gin and gorm 5
+id:1
+modified_by:alice
+
+curl -X GET http://127.0.0.1:8080/api/v1/articles -F tag_id=1 -F state=1  -H 'token: xxx...'
+curl -X GET http://127.0.0.1:8080/api/v1/articles/1 -H 'token: xxx...'
+curl -X DELETE http://127.0.0.1:8080/api/v1/articles/{1} -H 'token: xxx...'
+
 ```
 
 ### GORM
@@ -192,6 +224,14 @@ curl -X GET http://127.0.0.1:8080/api/v1/tags -H 'token: eyJhbGciOiJIUzI1NiIsInR
 {"list":[{"id":2,"created_by":"tinawong","modified_by":"","created_on":1658564501,"modified_on":1658564501,"deleted_on":0,"is_del":0,"name":"Java","state":1},{"id":4,"created_by":"tinawong","modified_by":"","created_on":1658584135,"modified_on":1658584135,"deleted_on":0,"is_del":0,"name":"JavaScript","state":1}],"pager":{"page":1,"page_size":10,"total_rows":2}}
 ```
 
+```shell
+curl --help
+-H, --header LINE   Pass custom header LINE to server (H)
+ 	==> place token in header while using postman
+-F, --form CONTENT  Specify HTTP multipart POST data (H)
+	==> use form-date in request body while POST
+```
+
 ### log middleware
 ```shell
 go get -u gopkg.in/gomail.v2
@@ -199,4 +239,11 @@ go get -u gopkg.in/gomail.v2
 ### network visit ratelimit
 ```shell
 go get -u github.com/juju/ratelimit@v1.0.1
+```
+
+### Go failing
+[Go failing - expected 'package', found 'EOF'](https://stackoverflow.com/questions/31110191/go-failing-expected-package-found-eof)
+
+```shell
+go run main.go
 ```

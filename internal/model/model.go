@@ -10,6 +10,10 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
+const (
+	STATE_OPEN  = 1
+	STATE_CLOSE = 0
+)
 type Model struct {
 	ID         uint32 `gorm:"primary_key" json:"id"`
 	CreatedBy  string `json:"created_by"`
@@ -83,6 +87,7 @@ func deleteCallback(scope *gorm.Scope) {
 		deletedOnField, hasDeletedOnField := scope.FieldByName("DeletedOn")
 		isDelField, hasIsDelField := scope.FieldByName("IsDel")
 		if !scope.Search.Unscoped && hasDeletedOnField && hasIsDelField {
+			// soft delete
 			now := time.Now().Unix()
 			scope.Raw(fmt.Sprintf(
 				"UPDATE %v SET %v=%v,%v=%v%v%v",
@@ -95,6 +100,7 @@ func deleteCallback(scope *gorm.Scope) {
 				addExtraSpaceIfExist(extraOption),
 			)).Exec()
 		} else {
+			// hard delete
 			scope.Raw(fmt.Sprintf(
 				"DELETE FROM %v%v%v",
 				scope.QuotedTableName(),

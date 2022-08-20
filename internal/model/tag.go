@@ -66,3 +66,24 @@ func (t Tag) Update(db *gorm.DB, values interface{}) error {
 func (t Tag) Delete(db *gorm.DB) error {
 	return db.Where("id = ? AND is_del = ?", t.Model.ID, 0).Delete(&t).Error
 }
+
+func (t Tag) Get(db *gorm.DB) (Tag, error) {
+	var tag Tag
+	err := db.Where("id = ? AND is_del = ? AND state = ?", t.ID, 0, t.State).First(&tag).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return tag, err
+	}
+
+	return tag, nil
+}
+
+func (t Tag) ListByIDs(db *gorm.DB, ids []uint32) ([]*Tag, error) {
+	var tags []*Tag
+	db = db.Where("state = ? AND is_del = ?", t.State, 0)
+	err := db.Where("id IN (?)", ids).Find(&tags).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return nil, err
+	}
+
+	return tags, nil
+}
