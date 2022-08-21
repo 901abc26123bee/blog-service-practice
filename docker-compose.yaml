@@ -1,7 +1,19 @@
 version: "3.7"
 
 services:
-
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - blog
+      # blog:
+      #   ipv4_address: 172.16.220.20
   mysql:
     container_name: mysql
     # if your Mysql Workbench(6.3) version is higher, you may encounter SSL connection error: unknown error number
@@ -14,21 +26,23 @@ services:
       MYSQL_PASSWORD: 123456
       MYSQL_ROOT_PASSWORD: 123456
     ports:
-      - "3310:3306"
+      # - "3310:3306"
+      - "3306:3306"
     volumes:
       - "mysql-blog-service-data:/data/mysql"
       # - "./db_context/my.cnf:/etc/mysql/my.cnf"
       - "./db_context/my.cnf:/etc/mysql/conf.d/my.cnf"
     networks:
-      blog:
-        ipv4_address: 172.16.220.21
+      - blog
+      # blog:
+      #   ipv4_address: 172.16.220.21
 
 volumes:
   mysql-blog-service-data:
 
 networks:
   blog:
-    ipam:
-      driver: default
-      config: # fix the internal IP to avoid redis IP warp causing slave not found
-        - subnet: 172.16.220.0/24
+    # ipam:
+    #   driver: default
+    #   config:
+    #     - subnet: 172.16.220.0/24

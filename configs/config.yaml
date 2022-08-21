@@ -23,9 +23,10 @@ App:
     - .png
 Database:
   DBType: mysql
-  Username: root  # 填写你的数据库账号
-  Password: 123456  # 填写你的数据库密码
-  Host: 127.0.0.1:3310
+  Username: root
+  Password: 123456
+  Host: host.docker.internal:3306 # blog_service and mysql start as conatiner in docker-compose
+  # Host: 127.0.0.1:3310  # blog_service start from host
   DBName: blog_service
   TablePrefix: blog_
   Charset: utf8

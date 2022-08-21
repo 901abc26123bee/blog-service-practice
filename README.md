@@ -247,3 +247,18 @@ go get -u github.com/juju/ratelimit@v1.0.1
 ```shell
 go run main.go
 ```
+
+### docker
+Dockerfile
+```shell
+docker build -t 'blog-service' .
+docker run 'blog-service'
+```
+
+docker-compose
+```shell
+docker-compose up --build
+docker-compose down
+```
+
+visit `http://127.0.0.1:8000/swagger/index.html`
