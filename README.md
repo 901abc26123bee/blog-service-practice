@@ -16,6 +16,12 @@ blog-service
 └── third_party
 ```
 
+### setup
+1. `docker-compose up build`
+2. run `setup_mysql.sql` in `go_blog-service/storage/` to setup table and auth data
+3. visit `http://127.0.0.1:8080/swagger/index.html`
+
+## Note
 ### Problem Solving:
 #### Swag Command
 ```shell
@@ -262,3 +268,7 @@ docker-compose down
 ```
 
 visit `http://127.0.0.1:8000/swagger/index.html`
+
+
+## Project Reference
+[《Go 语言编程之旅：一起用 Go 做项目》](https://github.com/go-programming-tour-book)
