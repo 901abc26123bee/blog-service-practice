@@ -1,0 +1,7 @@
+.bash_history
+.vscode/
+test/
+out/
+dist/
+
+./storage/logs/app.log
